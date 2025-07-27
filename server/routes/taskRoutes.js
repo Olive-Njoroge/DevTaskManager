@@ -4,7 +4,7 @@ const {createTask,getMyTasks, getAllTasks} = require('../controllers/taskControl
 const {protect, authorize} = require('../middleware/auth');
 
 router.post('/', protect, createTask);
-router.get('/me', protwct, getMyTasks);
+router.get('/me', protect, getMyTasks);
 router.get('/all', protect, authorize(["admin"]), getAllTasks);
 
 module.exports = router;
