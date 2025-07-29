@@ -10,7 +10,10 @@ const app = express();
 connectDB();
 
 //middleware
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:5173', // or wherever your frontend runs
+  credentials: true
+}));
 app.use(express.json());
 
 //api endpoints
