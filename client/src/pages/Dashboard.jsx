@@ -3,7 +3,7 @@ import API from '../services/api';
 import TaskCard from '../components/TaskCard';
 import TaskDialog from '../components/TaskDialog';
 import Navbar from '../components/Navbar';
-import {Sonner} from '@/components/ui/sonner';
+import {Toaster} from '@/components/ui/sonner';
 
 export default function Dashboard(){
     const [tasks, setTasks] = useState([]);
@@ -18,7 +18,7 @@ export default function Dashboard(){
     const createTask = async (payload) => {
         const res = await API.post("/tasks", payload);
         setTasks( t => [res.data, ...t]);
-        Sonner({title: "Task Created ✔"});
+        Toaster({title: "Task Created ✔"});
     };
 
     const toggleTask = async (id) => {
@@ -30,7 +30,7 @@ export default function Dashboard(){
     const deleteTask = async (id) => {
         await API.delete(`/tasks/${id}`);
         setTasks(t => t.filter(t => t._id !== id));
-        Sonner({title: "Task Deleted 🗑"});
+        Toaster({title: "Task Deleted 🗑"});
     };
 
     return(
