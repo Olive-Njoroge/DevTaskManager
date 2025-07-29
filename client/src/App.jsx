@@ -1,12 +1,20 @@
-import ThemeToggle from './components/ThemeToggle'
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import ProtectedRoute from './utils/protectedRoute'
 
 function App() {
 
   return (
-    <>
-    <ThemeToggle/>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Navigate to="/dashboard" />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App
