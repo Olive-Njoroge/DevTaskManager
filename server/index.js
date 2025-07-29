@@ -11,7 +11,7 @@ connectDB();
 
 //middleware
 app.use(cors({
-  origin: 'http://localhost:5173', // or wherever your frontend runs
+  origin: ["https://dev-task-manager-six.vercel.app", "http://localhost:5173"], // or wherever your frontend runs
   credentials: true
 }));
 app.use(express.json());
