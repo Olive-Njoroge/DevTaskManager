@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+const backendUrl = import.meta.env.VITE_BACKEND_URI
+
 const API = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URI || `http://localhost:5000`
+    baseURL: `${backendUrl}/api` 
 });
 
 //INTERCEPTOR... makes sure we attach JWT automatically
