@@ -24,6 +24,7 @@ export default function Login() {
     try {
       const res = await API.post('/auth/login', { email, password });
       localStorage.setItem('token', res.data.token);
+      console.log('Login response:', res.data);
       navigate('/dashboard');
     } catch (err) {
       alert(err.response?.data?.message || 'Login Failed');

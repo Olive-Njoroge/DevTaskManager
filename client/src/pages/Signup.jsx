@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Link} from 'react-router-dom';
 import {Input} from '@/components/ui/input';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from '@/components/ui/card';
@@ -40,6 +40,12 @@ export default function Signup(){
                         {loading ? "Signing up..." : "Sign Up"}
                     </Button>
                 </CardFooter>
+                <p className="text-sm text-center text-zinc-600 dark:text-zinc-300 mt-4">
+                    Already have an account?{' '}
+                    <Link to="/login" className="text-blue-600 hover:underline">
+                        Log in
+                    </Link>
+                </p>
             </Card>
         </div>
     );
